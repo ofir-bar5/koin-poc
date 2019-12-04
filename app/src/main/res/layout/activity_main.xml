@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_toast_sharedprefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Toast Shared Prefs"
+        app:layout_constraintBottom_toTopOf="@+id/toast_db"
+        app:layout_constraintEnd_toEndOf="@+id/toast_db"
+        app:layout_constraintStart_toStartOf="@+id/toast_db" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='Save Cocktail via Network Request'
+        app:layout_constraintBottom_toTopOf="@+id/btn_network"
+        app:layout_constraintEnd_toEndOf="@+id/btn_network"
+        app:layout_constraintStart_toStartOf="@+id/btn_network" />
+
+    <TextView
+        android:id="@+id/tv_sharedprefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='Save the word "test" with incremental number to shared prefs'
+        app:layout_constraintBottom_toTopOf="@+id/btn_sharedprefs"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sharedprefs"
+        app:layout_constraintStart_toStartOf="@+id/btn_sharedprefs" />
+
+    <Button
+        android:id="@+id/btn_sharedprefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Save To Shared Prefs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tv_savetodb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Save to DB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sharedprefs" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='Save "test" with incremental number to local DB'
+        app:layout_constraintBottom_toTopOf="@+id/tv_savetodb"
+        app:layout_constraintEnd_toEndOf="@+id/tv_savetodb"
+        app:layout_constraintStart_toStartOf="@+id/tv_savetodb" />
+
+    <Button
+        android:id="@+id/btn_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Get Cocktail via REST"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_savetodb" />
+
+    <Button
+        android:id="@+id/toast_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Toast Network"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/toast_db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Toast Database"
+        app:layout_constraintBottom_toTopOf="@+id/toast_network"
+        app:layout_constraintEnd_toEndOf="@+id/toast_network"
+        app:layout_constraintStart_toStartOf="@+id/toast_network" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
