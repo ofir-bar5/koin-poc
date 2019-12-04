@@ -48,7 +48,15 @@ class MainActivity : AppCompatActivity() {
         btn_toast_sharedprefs.setOnClickListener {
             toast(sharedPref.getInt("key", -1).toString())
         }
-        btn_toast_db.setOnClickListener {  }
+        btn_toast_db.setOnClickListener {
+            Thread(Runnable {
+                val listOfWords : List<Word> = wordDao.getAlphabetizedWords()
+                Log.e("Thread", "getAlphabetizedWords ${Thread.currentThread().name}}")
+                for ( word in listOfWords){
+                    Log.e("list of words:", word.word)
+                }
+            }).start()
+        }
     }
 
     private fun toast(msg : String){
