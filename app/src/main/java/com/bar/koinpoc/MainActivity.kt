@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bar.koinpoc.room.Word
+import com.bar.koinpoc.room.WordDao
+import com.bar.koinpoc.room.WordRoomDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers.IO
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
         val sharedPrefsEditor = sharedPref.edit()
 
+        val wordDao : WordDao = WordRoomDatabase.getDatabase(this).wordDao()
+
         btn_sharedprefs.setOnClickListener {
             val rands = (0..500000).random()
             sharedPrefsEditor.putInt("key", rands)
@@ -24,7 +30,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_savetodb.setOnClickListener {
-            toast("save to db")
+            val rands = (0..10000).random()
+            Thread(Runnable {
+                wordDao.insert(Word("Word${rands}"))
+                Log.e("Thread", "{wordDao.insert() at ${Thread.currentThread().name}}")
+            }).start()
+
+            toast("saved to db")
         }
 
         btn_network.setOnClickListener {
@@ -42,4 +54,6 @@ class MainActivity : AppCompatActivity() {
     private fun toast(msg : String){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
+
+
 }
