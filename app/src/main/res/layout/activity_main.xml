@@ -21,10 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Toast All Shared Prefs"
-        app:layout_constraintBottom_toTopOf="@+id/toast_db"
-        app:layout_constraintEnd_toEndOf="@+id/toast_db"
-        app:layout_constraintStart_toStartOf="@+id/toast_db" />
+        android:text="Toast Shared Prefs"
+        app:layout_constraintBottom_toTopOf="@+id/btn_toast_db"
+        app:layout_constraintEnd_toEndOf="@+id/btn_toast_db"
+        app:layout_constraintStart_toStartOf="@+id/btn_toast_db" />
 
     <!-- DB -->
     <Button
@@ -37,11 +37,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_sharedprefs" />
     <Button
-        android:id="@+id/toast_db"
+        android:id="@+id/btn_toast_db"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Toast All Database"
+        android:text="Toast Database"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
