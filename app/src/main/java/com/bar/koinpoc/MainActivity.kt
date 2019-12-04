@@ -1,6 +1,6 @@
 package com.bar.koinpoc
 
-import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,16 +9,17 @@ import com.bar.koinpoc.room.Word
 import com.bar.koinpoc.room.WordDao
 import com.bar.koinpoc.room.WordRoomDatabase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers.IO
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
+
+    private val sharedPrefs : SharedPreferences by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        val sharedPrefsEditor = sharedPref.edit()
+        val sharedPrefsEditor = sharedPrefs.edit()
 
         val wordDao : WordDao = WordRoomDatabase.getDatabase(this).wordDao()
 
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         // Toast Buttons
         btn_toast_sharedprefs.setOnClickListener {
-            toast(sharedPref.getInt("key", -1).toString())
+            toast(sharedPrefs.getInt("key", -1).toString())
         }
         btn_toast_db.setOnClickListener {
             Thread(Runnable {
