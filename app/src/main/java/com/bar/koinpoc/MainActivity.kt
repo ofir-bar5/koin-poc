@@ -14,14 +14,14 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs : SharedPreferences by inject()
+    private val wordRoomDatabase : WordRoomDatabase by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val sharedPrefsEditor = sharedPrefs.edit()
-
-        val wordDao : WordDao = WordRoomDatabase.getDatabase(this).wordDao()
+        val wordDao : WordDao = wordRoomDatabase.wordDao()
 
         btn_sharedprefs.setOnClickListener {
             val rands = (0..500000).random()
