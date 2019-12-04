@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.bar.koinpoc.room.Word
 import com.bar.koinpoc.room.WordDao
 import com.bar.koinpoc.room.WordRoomDatabase
+import com.bar.koinpoc.simple_object.Watermelon
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -40,8 +41,9 @@ class MainActivity : AppCompatActivity() {
             toast("saved to db")
         }
 
-        btn_network.setOnClickListener {
-            toast("network")
+        btn_simple_object.setOnClickListener {
+            val watermelon : Watermelon by inject()
+            toast(watermelon.toString())
         }
 
 
